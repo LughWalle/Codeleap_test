@@ -1,5 +1,5 @@
-import { StyledButton } from './styles';
+import { StyledButton } from './style';
 
 export default function Button({ children, ...props }) {
-  return <StyledButton {...props}>{children}</StyledButton>;
+  return <StyledButton variant='contained' {...props}>{children}</StyledButton>;
 }

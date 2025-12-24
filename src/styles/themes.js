@@ -1,67 +1,118 @@
 import { createTheme } from '@mui/material/styles';
+import { colors } from './tokens/colors';
+import { typographyTokens as type } from './tokens/typography';
+import { spacing } from './tokens/spacing';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#7695EC',
-      contrastText: '#FFFFFF',
+      main: colors.brand.primary,
+      contrastText: colors.neutral.white,
     },
 
     success: {
-      main: '#47B960',
-      contrastText: '#FFFFFF',
+      main: colors.feedback.success,
+      contrastText: colors.neutral.white,
     },
 
     warning: {
-      main: '#FF5151',
-      contrastText: '#FFFFFF',
+      main: colors.feedback.warning,
+      contrastText: colors.neutral.white,
     },
 
     grey: {
-      500: '#777777',
+      500: colors.neutral.gray,
     },
 
     text: {
-      primary: '#1A1A1A',
-      secondary: '#777777',
+      primary: colors.neutral.black,
+      secondary: colors.neutral.gray,
     },
 
-    divider: '#E0E0E0',
+    divider: colors.neutral.lightGray,
   },
 
   typography: {
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: type.fontFamily,
+
+    allVariants: {
+      lineHeight: 1,
+    },
 
     h1: {
-      fontSize: '2.2rem',
-      fontWeight: 700,
+      fontSize: type.sizes.xl,
+      fontWeight: type.weight.bold,
     },
 
     h2: {
-      fontSize: '1.8rem',
-      fontWeight: 600,
+      fontSize: type.sizes.lg,
+      fontWeight: type.weight.bold,
     },
 
     body1: {
-      fontSize: '1.6rem',
-      lineHeight: 1.6,
+      fontSize: type.sizes.md,
     },
 
     body2: {
-      fontSize: '1.4rem',
-      lineHeight: 1.5,
-      color: '#777777',
+      fontSize: type.sizes.sm,
+      color: colors.neutral.gray,
     },
 
     button: {
-      fontSize: '1.4rem',
-      fontWeight: 600,
+      fontSize: type.sizes.sm,
+      fontWeight: type.weight.bold,
       textTransform: 'none',
     },
   },
 
   shape: {
     borderRadius: 8,
+  },
+
+  components: {
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          fontSize: type.sizes.sm,
+          marginBottom: spacing.sm,
+          lineHeight: 1,
+          textAlign: 'left',
+          color: colors.neutral.black,
+        },
+      },
+    },
+
+    MuiTextField: {
+      defaultProps: {
+        size: 'small',
+        variant: 'outlined',
+      },
+    },
+
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          fontSize: type.sizes.sm,
+          lineHeight: 1,
+          alignItems: 'center',
+        },
+
+        input: {
+          lineHeight: 1,
+          padding: `${spacing.xs + 2}px ${spacing.sm}px`, // 6px 8px
+        },
+
+        multiline: {
+          padding: spacing.sm,
+          alignItems: 'flex-start',
+        },
+
+        inputMultiline: {
+          lineHeight: 1,
+          padding: 0,
+        },
+      },
+    },
   },
 });
 

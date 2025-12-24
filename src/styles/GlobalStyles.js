@@ -12,6 +12,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    lineHeight: 1,
     font-family: 'Roboto', sans-serif;
     font-size: 1.6rem;
     background-color: #F2F2F2;

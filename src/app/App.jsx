@@ -2,12 +2,13 @@ import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Button, Card, Input, Modal } from '../components'
+import { Button, Card, FormField, Input, Modal } from '../components'
 
 function App() {
   const [count, setCount] = useState(0)
   const [modalOpen, setModalOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
+  const [inputMultValue, setInputMultValue] = useState('')
 
   return (
     <>
@@ -25,10 +26,21 @@ function App() {
           count is {count}
         </Button>
         <div style={{ marginTop: 12 }}>
-          <Input
+          <FormField
+            label="Exemplo de Input linha unica"
             placeholder="Exemplo de Input"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
+          />
+          </div>
+        <div style={{ marginTop: 12 }}>
+          <FormField
+            multiline
+            rows={4}
+            label="Exemplo de Input multiline"
+            placeholder="Exemplo de Input"
+            value={inputMultValue}
+            onChange={(e) => setInputMultValue(e.target.value)}
           />
         </div>
         <p>

@@ -1,5 +1,6 @@
 export { default as Button } from './atoms/Button'
 export { default as Input } from './atoms/Input'
 export { default as Modal } from './molecules/Modal'
-export { default as Card } from './molecules/Card'
+export { default as Card } from './atoms/Card'
 export { default as FormField } from './molecules/FormField'
+export { default as PostCard } from './molecules/PostCard'

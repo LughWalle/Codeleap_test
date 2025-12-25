@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
-import './App.css'
-import { Button, Card, FormField, Input, Modal } from '../components'
+import { Button, Card, FormField, Input, Modal, PostCard } from '../components'
 
 function App() {
   const [count, setCount] = useState(0)
   const [modalOpen, setModalOpen] = useState(false)
   const [inputValue, setInputValue] = useState('')
+  const [posts, setPosts] = useState([
+    { id: 1, username: 'Victor', created_datetime: '2023-01-01T00:00:00Z', title: 'My First Post at CodeLeap Network!', content: 'Curabitur suscipit suscipit tellus. Phasellus consectetuer vestibulum elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.' },
+    { id: 2, username: 'Alice', created_datetime: '2023-01-02T00:00:00Z', title: 'Another Post (default)', content: 'This card shows the header without the primary color.' }
+  ])
   const [inputMultValue, setInputMultValue] = useState('')
 
   return (
@@ -59,7 +62,19 @@ function App() {
         <Card title="Another Post (default)" style={{ marginTop: 16 }}>
           <p style={{ margin: 0 }}>This card shows the header without the primary color.</p>
         </Card>
+        <ul>
+        {posts.length > 0 && posts.map(post => (
+          <li key={post.id}>
 
+          <PostCard
+          post={post}
+          currentUser="Victor"
+          onEdit={(post) => alert(`Editar post: ${post.id}`)}
+          onDelete={(post) => alert(`Deletar post: ${post.id}`)}
+          />
+          </li>
+        ))}
+        </ul>
         <div style={{ marginTop: 16 }}>
           <Button onClick={() => setModalOpen(true)}>
             Abrir Modal de Exemplo

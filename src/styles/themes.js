@@ -4,32 +4,34 @@ import { typographyTokens as type } from './tokens/typography';
 import { spacing } from './tokens/spacing';
 
 const theme = createTheme({
+  custom: { spacing },
   palette: {
     primary: {
-      main: colors.brand.primary,
+      main: colors.brand.primary.main,
       contrastText: colors.neutral.white,
     },
 
     success: {
-      main: colors.feedback.success,
+      main: colors.feedback.success.main,
       contrastText: colors.neutral.white,
     },
 
     warning: {
-      main: colors.feedback.warning,
+      main: colors.feedback.warning.main,
       contrastText: colors.neutral.white,
     },
 
     grey: {
-      500: colors.neutral.gray,
+      500: colors.neutral.mediumGray,
     },
 
     text: {
       primary: colors.neutral.black,
-      secondary: colors.neutral.gray,
+      secondary: colors.neutral.darkGray,
+      disabled: colors.neutral.lightGray,
     },
 
-    divider: colors.neutral.lightGray,
+    divider: colors.neutral.veryLightGray,
   },
 
   typography: {
@@ -70,6 +72,29 @@ const theme = createTheme({
   },
 
   components: {
+    MuiButton: {
+      defaultProps: {
+        variant: 'contained',
+        disableElevation: true,
+      },
+
+      styleOverrides: {
+        root: ({ theme }) => ({
+          minWidth: 111,
+          padding: `${spacing.xs}px ${spacing.md}px`,
+          borderRadius: 8,
+          fontSize: type.sizes.sm,
+          fontWeight: type.weight.bold,
+          lineHeight: 1,
+
+          '&.Mui-disabled': {
+            backgroundColor: theme.palette.divider,
+            color: theme.palette.text.disabled,
+          },
+        }),
+      },
+    },
+
     MuiFormLabel: {
       styleOverrides: {
         root: {
@@ -98,8 +123,8 @@ const theme = createTheme({
         },
 
         input: {
+          padding: `${spacing.xs + 2}px ${spacing.sm}px`,
           lineHeight: 1,
-          padding: `${spacing.xs + 2}px ${spacing.sm}px`, // 6px 8px
         },
 
         multiline: {
@@ -108,8 +133,8 @@ const theme = createTheme({
         },
 
         inputMultiline: {
-          lineHeight: 1,
           padding: 0,
+          lineHeight: 1,
         },
       },
     },

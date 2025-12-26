@@ -28,7 +28,7 @@ export default function MainPage({
             color="primary"
             onClick={onCreatePost}
           >
-            Save
+            Create
           </Button>
         )} />
 

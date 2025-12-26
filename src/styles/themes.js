@@ -120,15 +120,17 @@ const theme = createTheme({
           fontSize: type.sizes.sm,
           lineHeight: 1,
           alignItems: 'center',
+          paddingInline: `${spacing.sm + 0.26}rem`, // 10.6px
         },
 
         input: {
-          // padding: `${spacing.xs + 2}rem ${spacing.sm}rem`,
+          height: 32,
+          padding: 0,
           lineHeight: 1,
         },
 
         multiline: {
-          padding: `${spacing.sm}rem`,
+          paddingBlock: `${spacing.sm - 0.1}rem`,
           alignItems: 'flex-start',
         },
 

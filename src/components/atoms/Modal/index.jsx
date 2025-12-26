@@ -9,7 +9,7 @@ export default function BaseModal({
 }) {
   return (
     <Modal open={open} onClose={onClose}>
-      <OverlayBox maxwidth={maxWidth}>
+      <OverlayBox $maxwidth={maxWidth}>
         {children}
       </OverlayBox>
     </Modal>

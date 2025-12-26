@@ -80,7 +80,7 @@ const theme = createTheme({
 
       styleOverrides: {
         root: ({ theme }) => ({
-          minWidth: 111,
+          width: 120,
           padding: `${spacing.xs}rem ${spacing.md}rem`,
           borderRadius: 8,
           fontSize: type.sizes.sm,
@@ -93,6 +93,54 @@ const theme = createTheme({
           },
         }),
       },
+      variants: [
+        {
+          props: { variant: 'outlined', color: 'inherit' },
+          style: ({ theme }) => ({
+            backgroundColor: theme.palette.common?.white || '#fff',
+            border: `1px solid ${theme.palette.text.primary}`,
+            color: theme.palette.text.primary,
+
+            '&:hover': {
+              backgroundColor: theme.palette.action.hover,
+              borderColor: theme.palette.text.primary,
+            },
+          }),
+        },
+        {
+          props: { variant: 'outlined', color: 'primary' },
+          style: ({ theme }) => ({
+            backgroundColor: theme.palette.neutral?.white || '#fff',
+            border: `1px solid ${theme.palette.primary.main}`,
+            color: theme.palette.primary.main,
+
+            '&:hover': {
+              backgroundColor: theme.palette.action.hover,
+              borderColor: theme.palette.primary.main,
+            },
+          }),
+        },
+
+        // 🔹 OUTLINED SUCCESS
+        {
+          props: { variant: 'outlined', color: 'success' },
+          style: ({ theme }) => ({
+            backgroundColor: theme.palette.neutral?.white || '#fff',
+            border: `1px solid ${theme.palette.success.main}`,
+            color: theme.palette.success.main,
+          }),
+        },
+
+        // 🔹 OUTLINED WARNING
+        {
+          props: { variant: 'outlined', color: 'warning' },
+          style: ({ theme }) => ({
+            backgroundColor: theme.palette.neutral?.white || '#fff',
+            border: `1px solid ${theme.palette.warning.main}`,
+            color: theme.palette.warning.main,
+          }),
+        },
+      ],
     },
 
     MuiFormLabel: {

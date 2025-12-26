@@ -14,7 +14,7 @@ export const CardHeader = styled.div`
 
     return `
       min-height: ${
-        isPrimary ? '7rem' : 'none'
+        isPrimary ? '7rem' : 'unset'
       };
       box-sizing: border-box;
 
@@ -64,7 +64,7 @@ export const CardContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: ${({ theme }) => theme.custom.spacing.lg}rem;
-  padding: ${({ theme }) => theme.custom.spacing.md}rem;
+  padding: ${({ theme }) => theme.custom.spacing.lg}rem;
   font-size: 1.4rem;
   line-height: 1.6;
 `;

@@ -8,4 +8,11 @@ export const HeaderContainer = styled.header`
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
+`;
+
+export const HeaderActions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
 `;

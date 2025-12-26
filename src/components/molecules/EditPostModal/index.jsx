@@ -12,7 +12,6 @@ export default function EditPostModal({
   const [newPostTitle, setNewPostTitle] = useState('');
   const [content, setContent] = useState('');
 
-  // Preenche quando abrir o modal
   useEffect(() => {
     if (post) {
       setNewPostTitle(post.title);
@@ -38,12 +37,14 @@ export default function EditPostModal({
         onContentChange={setContent}
         actions={(<>
           <Button
+            variant='outlined'
+            color="inherit"
             onClick={onClose}
           >
             Cancel
           </Button>
           <Button
-            color="primary"
+            color="success"
             onClick={handleSave}
           >
             Save

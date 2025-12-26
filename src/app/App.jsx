@@ -5,7 +5,11 @@ import LoginPage from '../pages/login';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(() => localStorage.getItem('username') || '');
-
+  
+  const handleLogout = () => {
+    setCurrentUser('');
+    localStorage.removeItem('username');
+  };
   useEffect(() => {
     if (!currentUser) localStorage.removeItem('username');
   }, [currentUser]);
@@ -19,7 +23,7 @@ export default function App() {
         />
         <Route
           path="/main"
-          element={currentUser ? <MainPage currentUser={currentUser} /> : <Navigate to="/" replace />}
+          element={currentUser ? <MainPage currentUser={currentUser} onLogout={handleLogout} /> : <Navigate to="/" replace />}
         />
         <Route path="*" element={<Navigate to={currentUser ? "/main" : "/"} replace />} />
       </Routes>

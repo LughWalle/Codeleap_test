@@ -11,7 +11,7 @@ export default function PostForm({
   actions
 }) {
   return (
-    <Card title={title}>
+    <Card fixedHeight="33.4rem" title={title}>
         <FormField
           label="Title"
           value={newPostTitle}

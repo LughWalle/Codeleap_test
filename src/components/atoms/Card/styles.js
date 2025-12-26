@@ -5,6 +5,7 @@ export const CardContainer = styled.div`
   border-radius: ${({ theme }) => theme.shape.borderRadius}px;
   overflow: hidden;
   text-align: left;
+  min-height: ${({ $fixedHeight }) => ($fixedHeight ? $fixedHeight : 'fit-content')};
 `;
 
 export const CardHeader = styled.div`

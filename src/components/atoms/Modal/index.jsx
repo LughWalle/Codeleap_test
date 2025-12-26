@@ -1,5 +1,5 @@
 import { Modal } from '@mui/material';
-import { OverlayBox } from './style';
+import { OverlayBox } from './styles';
 
 export default function BaseModal({
   open,

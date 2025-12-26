@@ -15,11 +15,11 @@ export default function PostCard({
 
   const headerActions = isOwner && (
     <Box display="flex" gap={(theme) => `${theme.custom.spacing.lg}rem`}>
-      <PostCardActions onClick={() => onDelete(post)}>
+      <PostCardActions onClick={() => onDelete(post.id)}>
         <DeleteIcon />
       </PostCardActions>
 
-      <PostCardActions onClick={() => onEdit(post)}>
+      <PostCardActions onClick={() => onEdit({ title: post.title, content: post.content})}>
         <EditIcon />
       </PostCardActions>
     </Box>

@@ -4,7 +4,7 @@ export const HeaderContainer = styled.header`
   background-color: ${({ theme }) => theme.palette.primary.main};
   color: ${({ theme }) => theme.palette.primary.contrastText};
 
-  padding: 27px 32px;
+  padding: 2.7rem 3.2rem;
 
   display: flex;
   align-items: center;
@@ -14,5 +14,5 @@ export const HeaderContainer = styled.header`
 export const HeaderActions = styled.div`
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 `;

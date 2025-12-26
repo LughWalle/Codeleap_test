@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-  border: 1px solid ${({ theme }) => theme.palette.grey[500]};
-  border-radius: ${({ theme }) => theme.shape.borderRadius}px;
-  overflow: hidden;
-  text-align: left;
-  min-height: ${({ $fixedHeight }) => ($fixedHeight ? $fixedHeight : 'fit-content')};
-`;
+${({ theme }) => ({
+  border: `1px solid ${theme.palette.grey[500]}`,
+  borderRadius: `${theme.shape.borderRadius}px`,
+  overflow: 'hidden',
+  textAlign: 'left',
+  minHeight: `${({ $fixedHeight }) => ($fixedHeight ? $fixedHeight : 'fit-content')}`,
+})}`;
 
 export const CardHeader = styled.div`
   ${({ theme, $variant }) => {
@@ -61,10 +62,12 @@ export const CardHeaderContent = styled.div`
   `;
   
 export const CardContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.custom.spacing.lg}rem;
-  padding: ${({ theme }) => theme.custom.spacing.lg}rem;
-  font-size: 1.4rem;
-  line-height: 1.6;
+  ${({ theme }) => ({
+    display: flex,
+    flexDirection: column,
+    gap: `${theme.custom.spacing.lg}rem`,
+    padding: `${theme.custom.spacing.lg}rem`,
+    fontSize: `${theme.custom.type.sizes.md}`,
+    lineHeight: '1.6rem',
+  })}
 `;

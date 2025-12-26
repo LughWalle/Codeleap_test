@@ -80,7 +80,7 @@ const theme = createTheme({
 
       styleOverrides: {
         root: ({ theme }) => ({
-          width: 120,
+          maxWidth: 120,
           padding: `${spacing.xs}rem ${spacing.md}rem`,
           borderRadius: 8,
           fontSize: type.sizes.sm,
@@ -120,8 +120,6 @@ const theme = createTheme({
             },
           }),
         },
-
-        // 🔹 OUTLINED SUCCESS
         {
           props: { variant: 'outlined', color: 'success' },
           style: ({ theme }) => ({
@@ -130,8 +128,6 @@ const theme = createTheme({
             color: theme.palette.success.main,
           }),
         },
-
-        // 🔹 OUTLINED WARNING
         {
           props: { variant: 'outlined', color: 'warning' },
           style: ({ theme }) => ({

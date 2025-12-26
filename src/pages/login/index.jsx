@@ -34,6 +34,7 @@ export default function LoginPage({ onLogin }) {
             <Button
               color="primary"
               onClick={handleEnter}
+              width="11.1rem"
             >
               ENTER
             </Button>

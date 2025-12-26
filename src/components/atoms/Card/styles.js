@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-${({ theme }) => ({
+${({ theme, $fixedHeight }) => ({
   border: `1px solid ${theme.palette.grey[500]}`,
   borderRadius: `${theme.shape.borderRadius}px`,
   overflow: 'hidden',
   textAlign: 'left',
-  minHeight: `${({ $fixedHeight }) => ($fixedHeight ? $fixedHeight : 'fit-content')}`,
+  minHeight: $fixedHeight ? $fixedHeight : 'fit-content',
 })}`;
 
 export const CardHeader = styled.div`
@@ -62,12 +62,12 @@ export const CardHeaderContent = styled.div`
   `;
   
 export const CardContent = styled.div`
-  ${({ theme }) => ({
-    display: flex,
-    flexDirection: column,
-    gap: `${theme.custom.spacing.lg}rem`,
+  ${({ theme, $gap }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    gap: $gap ? `${theme.custom.spacing.lg}rem` : 0,
     padding: `${theme.custom.spacing.lg}rem`,
-    fontSize: `${theme.custom.type.sizes.md}`,
+    fontSize: `${theme.typography.body1.fontSize}`,
     lineHeight: '1.6rem',
   })}
 `;

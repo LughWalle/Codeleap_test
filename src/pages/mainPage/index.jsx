@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Button, DeletePostModal, EditPostModal, Header, PostCard, PostForm } from '../../components';
-import { PageContainer, ContentWrapper, PostList } from './styles';
+import { PageContainer, ScrollWrapper, ContentWrapper, PostList } from './styles';
 import { 
   useGetPosts, 
   useCreatePost, 
@@ -44,7 +44,7 @@ export default function MainPage({ currentUser, onLogout }) {
       id: selectedPost.id,
       data: {
         title: updatedData.newPostTitle,
-        content: updatedData.content,
+        content: updatedData.newContent,
       },
     });
     setEditModalOpen(false);
@@ -70,36 +70,37 @@ export default function MainPage({ currentUser, onLogout }) {
   return (
     <PageContainer>
       <Header onLogout={onLogout} />
+      <ScrollWrapper>
+        <ContentWrapper>
+          <PostForm
+            title="What’s on your mind?"
+            newPostTitle={newPostTitle}
+            content={content}
+            onTitleChange={setNewPostTitle}
+            onContentChange={setContent}
+            actions={(
+            <Button
+              color="primary"
+              onClick={handleCreatePost}
+              disabled={createPostMutation.isPending}
+            >
+              {createPostMutation.isPending ? 'Creating' : 'Create'}
+            </Button>
+          )} />
 
-      <ContentWrapper>
-        <PostForm
-          title="What’s on your mind?"
-          newPostTitle={newPostTitle}
-          content={content}
-          onTitleChange={setNewPostTitle}
-          onContentChange={setContent}
-          actions={(
-          <Button
-            color="primary"
-            onClick={handleCreatePost}
-            disabled={createPostMutation.isPending}
-          >
-            {createPostMutation.isPending ? 'Creating' : 'Create'}
-          </Button>
-        )} />
-
-        <PostList>
-          {posts.map((post) => (
-            <PostCard
-              key={post.id}
-              post={post}
-              currentUser={currentUser}
-              onEdit={(updateData) => handleEditPost(post.id, updateData)}
-              onDelete={() => handleOpenDeleteModal(post)}
-            />
-          ))}
-        </PostList>
-      </ContentWrapper>
+          <PostList>
+            {posts.map((post) => (
+              <PostCard
+                key={post.id}
+                post={post}
+                currentUser={currentUser}
+                onEdit={() => handleEditPost(post)}
+                onDelete={() => handleOpenDeleteModal(post)}
+              />
+            ))}
+          </PostList>
+        </ContentWrapper>
+      </ScrollWrapper>
       <EditPostModal
         open={editModalOpen}
         onClose={() => setEditModalOpen(false)}

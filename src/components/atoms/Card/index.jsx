@@ -6,6 +6,7 @@ export default function Card({
   headerActions,
   children,
   fixedHeight,
+  gap,
   ...rest
 }) {
   return (
@@ -22,7 +23,7 @@ export default function Card({
         </CardHeader>
       )}
 
-      <CardContent>
+      <CardContent $gap={gap}>
         {children}
       </CardContent>
     </CardContainer>

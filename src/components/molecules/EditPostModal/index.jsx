@@ -10,20 +10,25 @@ export default function EditPostModal({
   onSave,
 }) {
   const [newPostTitle, setNewPostTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [newContent, setNewContent] = useState('');
 
   useEffect(() => {
     if (post) {
       setNewPostTitle(post.title);
-      setContent(post.content);
+      setNewContent(post.content);
     }
   }, [post]);
 
   const handleSave = () => {
+    console.log({
+      post,
+      newPostTitle,
+      newContent,
+    })
     onSave({
       ...post,
       newPostTitle,
-      content,
+      newContent,
     });
   };
 
@@ -32,9 +37,9 @@ export default function EditPostModal({
       <PostForm
         title="Edit Post"
         newPostTitle={newPostTitle}
-        content={content}
+        content={newContent}
         onTitleChange={setNewPostTitle}
-        onContentChange={setContent}
+        onContentChange={setNewContent}
         actions={(<>
           <Button
             variant='outlined'

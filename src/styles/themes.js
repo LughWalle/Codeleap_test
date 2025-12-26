@@ -72,6 +72,13 @@ const theme = createTheme({
   },
 
   components: {
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          margin: 0,
+        }
+      }
+    },
     MuiButton: {
       defaultProps: {
         variant: 'contained',

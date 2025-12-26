@@ -8,9 +8,12 @@ export default function LoginPage({ onLogin }) {
   const [username, setUsername] = useState('');
   const navigate = useNavigate();
 
-  const handleEnter = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
     const name = username.trim();
     if (!name) return;
+
     onLogin(name);
     localStorage.setItem('username', name);
     navigate('/main', { replace: true });
@@ -19,25 +22,34 @@ export default function LoginPage({ onLogin }) {
   return (
     <PageContainer>
       <Modal open={true} maxWidth="50rem">
-      <Card title="Welcome to CodeLeap network!" >
-        <FormField
-          label="Please enter your username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="John doe"
-        />
+        <Card title="Welcome to CodeLeap network!" >
           <Box
-            display="flex"
-            justifyContent="flex-end"
-            gap={(theme) => `${theme.custom.spacing.md}rem`}
-          >
-            <Button
-              color="primary"
-              onClick={handleEnter}
-              width="11.1rem"
+              component="form"
+              onSubmit={handleSubmit}
+              display="flex"
+              flexDirection="column"
+              gap={(theme) => `${theme.custom.spacing.lg}rem`}
             >
-              ENTER
-            </Button>
+            <FormField
+              label="Please enter your username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="John doe"
+            />
+            <Box
+              display="flex"
+              justifyContent="flex-end"
+              gap={(theme) => `${theme.custom.spacing.md}rem`}
+            >
+              <Button
+                type="submit"
+                color="primary"
+                width="11.1rem"
+                disabled={!username.trim()}
+              >
+                ENTER
+              </Button>
+            </Box>
           </Box>
         </Card>
       </Modal>

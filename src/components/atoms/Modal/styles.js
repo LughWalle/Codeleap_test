@@ -10,7 +10,7 @@ export const OverlayBox = styled(Box)`
   background: #fff;
   border-radius: ${({ theme }) => theme.shape.borderRadius}px;
   width: 100%;
-  max-width: ${({ $maxwidth }) => $maxwidth};
+  max-width: ${({ $maxwidth = '662px' }) => `clamp(280px, ${$maxwidth}, 95%)`};
   margin: auto;
   box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.15);
   outline: unset;

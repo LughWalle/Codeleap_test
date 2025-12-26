@@ -5,9 +5,10 @@ export default function Card({
   variant = 'default',
   headerActions,
   children,
+  ...rest
 }) {
   return (
-    <CardContainer>
+    <CardContainer {...rest}>
       {title && (
         <CardHeader $variant={variant}>
           <CardHeaderContent>

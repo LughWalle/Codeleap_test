@@ -8,19 +8,34 @@ export const CardContainer = styled.div`
 `;
 
 export const CardHeader = styled.div`
-  min-height: 7rem;
-  background-color: ${({ theme, $variant }) =>
-    $variant === 'primary'
-      ? theme.palette.primary.main
-      : 'transparent'};
+  ${({ theme, $variant }) => {
+    const isPrimary = $variant === 'primary';
 
-  color: ${({ theme, $variant }) =>
-    $variant === 'primary'
-      ? theme.palette.primary.contrastText
-      : theme.palette.text.primary};
-  padding: ${({ theme }) => theme.custom.spacing.lg}px;
-  box-sizing: border-box;
+    return `
+      min-height: ${
+        isPrimary ? '7rem' : 'none'
+      };
+      box-sizing: border-box;
+
+      background-color: ${
+        isPrimary ? theme.palette.primary.main : 'transparent'
+      };
+
+      color: ${
+        isPrimary
+          ? theme.palette.primary.contrastText
+          : theme.palette.text.primary
+      };
+
+      padding: ${
+        isPrimary
+          ? `${theme.custom.spacing.lg}rem`
+          : `${theme.custom.spacing.lg}rem ${theme.custom.spacing.lg}rem 0`
+      };
+    `;
+  }}
 `;
+
 
 export const CardTitle = styled.span`
   font-size: 2.2rem;
@@ -34,7 +49,7 @@ export const CardHeaderActions = styled.div`
   top: 50%;
   transform: translateY(-50%);
   display: flex;
-  gap: ${({ theme }) => theme.custom.spacing.lg}px;
+  gap: ${({ theme }) => theme.custom.spacing.lg}rem;
 `;
 export const CardHeaderContent = styled.div`
   position: relative;
@@ -42,11 +57,13 @@ export const CardHeaderContent = styled.div`
   align-items: center;
   min-height: 2.2rem;
   justify-content: space-between;
-  // gap: ${({ theme }) => theme.custom.spacing.lg}px;
-`;
-
+  `;
+  
 export const CardContent = styled.div`
-  padding: ${({ theme }) => theme.custom.spacing.md}px;
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.custom.spacing.lg}rem;
+  padding: ${({ theme }) => theme.custom.spacing.md}rem;
   font-size: 1.4rem;
   line-height: 1.6;
 `;

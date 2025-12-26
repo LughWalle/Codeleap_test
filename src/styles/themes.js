@@ -57,7 +57,7 @@ const theme = createTheme({
 
     body2: {
       fontSize: type.sizes.sm,
-      color: colors.neutral.gray,
+      color: colors.neutral.mediumGray,
     },
 
     button: {
@@ -81,7 +81,7 @@ const theme = createTheme({
       styleOverrides: {
         root: ({ theme }) => ({
           minWidth: 111,
-          padding: `${spacing.xs}px ${spacing.md}px`,
+          padding: `${spacing.xs}rem ${spacing.md}rem`,
           borderRadius: 8,
           fontSize: type.sizes.sm,
           fontWeight: type.weight.bold,
@@ -123,12 +123,12 @@ const theme = createTheme({
         },
 
         input: {
-          padding: `${spacing.xs + 2}px ${spacing.sm}px`,
+          // padding: `${spacing.xs + 2}rem ${spacing.sm}rem`,
           lineHeight: 1,
         },
 
         multiline: {
-          padding: spacing.sm,
+          padding: `${spacing.sm}rem`,
           alignItems: 'flex-start',
         },
 

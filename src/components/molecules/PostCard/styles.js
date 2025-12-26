@@ -9,8 +9,8 @@ export const PostCardActions = styled(IconButton)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   '& > svg': {
-    width: 'none',
-    height: 'none',
+    width: 'inherit',
+    height: 'inherit',
     color: theme.palette.primary.contrastText
   },
   

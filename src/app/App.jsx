@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router';
-import MainPage from '../pages/mainPage';
-import LoginPage from '../pages/login';
+import { AppLoader } from '../components';
+const MainPage = lazy(() => import('../pages/mainPage'));
+const LoginPage = lazy(() => import('../pages/login'));
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(() => localStorage.getItem('username') || '');
@@ -16,6 +17,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+    <Suspense fallback={<AppLoader />}>
       <Routes>
         <Route
           path="/"
@@ -27,6 +29,7 @@ export default function App() {
         />
         <Route path="*" element={<Navigate to={currentUser ? "/main" : "/"} replace />} />
       </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }

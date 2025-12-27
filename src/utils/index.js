@@ -28,3 +28,5 @@ export function formatTime(date) {
     ? '1 year ago'
     : `${diffInYears} years ago`;
 }
+
+export const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));

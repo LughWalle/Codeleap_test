@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Button, DeletePostModal, EditPostModal, Header, PostCard, PostForm } from '../../components';
+import { Button, DeletePostModal, EditPostModal, Header, PostCard, PostForm, SkeletonPostCard } from '../../components';
 import { PageContainer, ScrollWrapper, ContentWrapper, PostList } from './styles';
 import { 
   useGetPosts, 
@@ -64,9 +64,6 @@ export default function MainPage({ currentUser, onLogout }) {
     setDeleteModalOpen(false);
     setSelectedPost(null);
   };
-
-  if (isLoading) return <div>Carregando...</div>;
-
   return (
     <PageContainer>
       <Header onLogout={onLogout} />
@@ -89,7 +86,11 @@ export default function MainPage({ currentUser, onLogout }) {
           )} />
 
           <PostList>
-            {posts.map((post) => (
+            {isLoading
+              ? Array.from({ length: 3 }).map((_, index) => (
+                  <SkeletonPostCard key={index} />
+                ))
+              : posts.map((post) => (
               <PostCard
                 key={post.id}
                 post={post}

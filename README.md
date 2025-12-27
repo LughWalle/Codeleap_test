@@ -1,16 +1,122 @@
-# React + Vite
+# CodeLeap Network
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple React project made for the CodeLeap challenge.
 
-Currently, two official plugins are available:
+The app lets users:
+- Login with a username
+- Create posts
+- Edit their own posts
+- Delete their own posts
+- See a list of posts with scroll
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Live Project
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Project running online:
+[HERE](https://lughcodeleap.vercel.app/)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Requirements
+
+Before start, you need to have:
+
+- Node.js (version 22 or higher)
+- npm or yarn
+
+Check if you have it:
+
+node -v  
+npm -v
+
+---
+
+## How to run the project locally
+
+1. Clone the repository
+```bash
+git clone git@github.com:LughWalle/Codeleap_test.git
+```
+2. Enter the project folder
+```bash
+cd codeleap_test
+```
+3. Install dependencies
+```bash
+npm install
+
+or
+
+yarn install
+```
+
+4. Create .env file and take this line. If you not have API link, you don't create the .env file, just skip this step:
+
+<span style="color: yellow;">*skip this step will show "clear cache" button when using mock api  
+why? In the mock api, posts are saved to localStorage  
+And we won't your cache to fill with every test.*</spam>
+![alt text](./public/image.png)
+
+```bash
+VITE_API_URL=URL_API_TEST
+```
+
+5. Run the project
+```bash
+npm run dev
+
+or
+
+yarn dev
+```
+The project will run at:
+
+http://localhost:5173
+
+---
+
+## Build for production
+
+To generate the production build:
+```bash
+npm run build
+
+or
+
+yarn build
+```
+The project will run at:
+
+http://localhost:4173/
+
+---
+
+## Deploy
+
+This project is deployed on Vercel.
+
+### https://lughcodeleap.vercel.app/
+
+---
+
+## Tech Stack
+
+- React
+- Vite
+- Material UI
+- Styled Components
+- React Query
+- Axios
+
+---
+## Decisões Técnicas
+
+- React Query for cache control and async state management
+- Lazy loading + Suspense for pages loading
+- Skeletons for improving user experience
+- styled-components + MUI To ensure visual consistency and scalability
+
+## Author
+
+Made by Lucival dos Santos França Filho

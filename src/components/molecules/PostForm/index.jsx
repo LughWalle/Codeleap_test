@@ -29,7 +29,7 @@ export default function PostForm({
         <Box
           display="flex"
           justifyContent="flex-end"
-          gap={(theme) => `${theme.custom.spacing.md}rem`}
+          gap={(theme) => `${theme.spacing.md}rem`}
         >
           {actions && actions}
         </Box>

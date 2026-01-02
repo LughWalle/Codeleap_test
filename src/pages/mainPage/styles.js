@@ -19,12 +19,12 @@ export const ContentWrapper = styled.main`
   margin: auto;
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.custom.spacing.lg}rem;
-  padding: ${({ theme }) => theme.custom.spacing.lg}rem;
+  gap: ${({ theme }) => theme.spacing.lg}rem;
+  padding: ${({ theme }) => theme.spacing.lg}rem;
 `;
 
 export const PostList = styled.section`
   display: flex;
   flex-direction: column;
-  gap: ${({ theme }) => theme.custom.spacing.lg}rem;
+  gap: ${({ theme }) => theme.spacing.lg}rem;
 `;

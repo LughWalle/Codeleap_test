@@ -11,7 +11,7 @@ export default function SkeletonPostCard() {
       <Box
         display="flex"
         justifyContent="space-between"
-        marginBottom={(theme) => `${theme.custom.spacing.sm}rem`}
+        marginBottom={(theme) => `${theme.spacing.sm}rem`}
       >
         <Skeleton variant="text" width="60%" height={22} />
         <Skeleton variant="text" width="30%" height={14} />

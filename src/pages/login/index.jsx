@@ -28,7 +28,7 @@ export default function LoginPage({ onLogin }) {
               onSubmit={handleSubmit}
               display="flex"
               flexDirection="column"
-              gap={(theme) => `${theme.custom.spacing.lg}rem`}
+              gap={(theme) => `${theme.spacing.lg}rem`}
             >
             <FormField
               label="Please enter your username"
@@ -39,7 +39,7 @@ export default function LoginPage({ onLogin }) {
             <Box
               display="flex"
               justifyContent="flex-end"
-              gap={(theme) => `${theme.custom.spacing.md}rem`}
+              gap={(theme) => `${theme.spacing.md}rem`}
             >
               <Button
                 type="submit"

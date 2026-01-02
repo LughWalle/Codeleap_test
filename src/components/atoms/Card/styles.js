@@ -31,8 +31,8 @@ export const CardHeader = styled.div`
 
       padding: ${
         isPrimary
-          ? `${theme.custom.spacing.lg}rem`
-          : `${theme.custom.spacing.lg}rem ${theme.custom.spacing.lg}rem 0`
+          ? `${theme.spacing.lg}rem`
+          : `${theme.spacing.lg}rem ${theme.spacing.lg}rem 0`
       };
     `;
   }}
@@ -51,7 +51,7 @@ export const CardHeaderActions = styled.div`
   top: 50%;
   transform: translateY(-50%);
   display: flex;
-  gap: ${({ theme }) => theme.custom.spacing.lg}rem;
+  gap: ${({ theme }) => theme.spacing.lg}rem;
 `;
 export const CardHeaderContent = styled.div`
   position: relative;
@@ -65,8 +65,8 @@ export const CardContent = styled.div`
   ${({ theme, $gap }) => ({
     display: 'flex',
     flexDirection: 'column',
-    gap: $gap ? `${theme.custom.spacing.lg}rem` : 0,
-    padding: `${theme.custom.spacing.lg}rem`,
+    gap: $gap ? `${theme.spacing.lg}rem` : 0,
+    padding: `${theme.spacing.lg}rem`,
     fontSize: `${theme.typography.body1.fontSize}`,
     lineHeight: '1.6rem',
   })}

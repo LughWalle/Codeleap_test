@@ -14,7 +14,7 @@ export default function PostCard({
   const isOwner = post.username === currentUser;
 
   const headerActions = isOwner && (
-    <Box display="flex" gap={(theme) => `${theme.spacing(4)}rem`}>
+    <Box display="flex" gap={(theme) => theme.spacing(4)}>
       <PostCardActions onClick={() => onDelete(post.id)}>
         <DeleteIcon />
       </PostCardActions>
@@ -34,7 +34,7 @@ export default function PostCard({
       <Box
         display="flex"
         justifyContent="space-between"
-        marginBottom={(theme) => `${theme.spacing(2)}rem`}
+        marginBottom={(theme) => theme.spacing(2)}
       >
         <Typography variant="body2">@{post.username}</Typography>
         <Typography variant="body2">
@@ -42,7 +42,7 @@ export default function PostCard({
         </Typography>
       </Box>
 
-      <Typography variant="body1" marginTop={(theme) => `${theme.spacing(2)}rem`}>
+      <Typography variant="body1" marginTop={(theme) => theme.spacing(2)}>
         {post.content}
       </Typography>
     </Card>

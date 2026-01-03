@@ -1,5 +1,3 @@
-import { colors } from '../tokens/colors';
-import { spacing } from '../tokens/spacing';
 import { typographyTokens as type } from '../tokens/typography';
 
 export function getComponentsOverrides(mode) {
@@ -13,18 +11,19 @@ export function getComponentsOverrides(mode) {
       },
 
       styleOverrides: {
-        root: {
+        root: ({ theme }) => ({
           minHeight: 36,
-          padding: `${spacing.xs}rem ${spacing.md}rem`,
-          borderRadius: 8,
+          padding: theme.spacing(1, 3),
+          borderRadius: theme.shape.borderRadius,
           fontWeight: type.weight.bold,
 
-          transition: 'background-color 200ms ease',
+          transition: theme.motion.duration.base,
 
           '&.Mui-disabled': {
-            backgroundColor: colors.brand.primary.disabled,
+            backgroundColor: theme.palette.action.disabledBackground,
+            color: theme.palette.action.disabled,
           },
-        },
+        }),
       },
     },
 

@@ -6,5 +6,5 @@ export const PageContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: ${({ theme }) => theme.palette.background.default};
-  padding: ${({ theme }) => `${theme.spacing.lg}rem`};
+  padding: ${({ theme }) => theme.spacing(4)};
 `;

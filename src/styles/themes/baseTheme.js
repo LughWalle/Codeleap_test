@@ -1,9 +1,21 @@
-import { spacing } from '../tokens/spacing';
+import { spacing as spacingTokens } from '../tokens/spacing';
 import { typographyTokens as type } from '../tokens/typography';
 import { motion } from '../tokens/motion';
 
+const spacingScale = {
+  0: 0,
+  1: spacingTokens.xs, // 0.4
+  2: spacingTokens.sm, // 0.8
+  3: spacingTokens.md, // 1.6
+  4: spacingTokens.lg, // 2.4
+  5: spacingTokens.xl, // 3.2
+};
+
 export const baseTheme = {
-  spacing: (factor) => `${factor * spacing.md}rem`,
+   spacing: (factor) => {
+    const value = spacingScale[factor] ?? factor * spacingTokens.md;
+    return `${value}rem`;
+  },
   motion,
 
   shape: {

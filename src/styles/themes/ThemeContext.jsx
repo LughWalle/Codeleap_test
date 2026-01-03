@@ -15,10 +15,7 @@ function getInitialTheme() {
 }
 
 export function ThemeProvider({ children }) {
-  // ✅ estado inicial síncrono
   const [themeId, setThemeId] = useState(getInitialTheme);
-
-  // 🔄 só sincroniza mudanças externas
   useEffect(() => {
     const media = window.matchMedia('(prefers-color-scheme: dark)');
 

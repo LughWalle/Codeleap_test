@@ -1,8 +1,5 @@
 import { primitives as p } from './colors.primitives';
 
-/* ----------------------------
- * Base semantic (default)
- * ---------------------------- */
 const baseSemantic = {
   brand: {
     primary: p.blue[500],
